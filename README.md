@@ -4,11 +4,11 @@
 
 1.  <u>**Build your keytool command. (I ran mine in bash, powershell might behave differently)**</u>
 
-    Just <b>replace</b> `username` and `com.sms_listener` with your own details.
+    Just <b>replace</b> `com.sms_listener` with your own package name.
     The default `-alias` for the debug keystore will always be **`androiddebugkey`**
 
     ```
-    keytool -exportcert -alias androiddebugkey -keystore 'C:\Users\<<<username>>>\.android\debug.keystore' | xxd -p | tr -d "[:space:]" | echo -n <<<com.sms_listener>>> `cat` | sha256sum | tr -d "[:space:]-" | xxd -r -p | base64 | cut -c1-11
+    keytool -exportcert -alias androiddebugkey -keystore '~\.android\debug.keystore' | xxd -p | tr -d "[:space:]" | echo -n <<<com.sms_listener>>> `cat` | sha256sum | tr -d "[:space:]-" | xxd -r -p | base64 | cut -c1-11
     ```
 
     If you are using the debug keystore like me, it will ask for a password after you run the above command.

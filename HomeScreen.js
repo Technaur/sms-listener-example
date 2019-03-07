@@ -35,16 +35,20 @@ export class HomeScreen extends Component {
           <Text h3> SMS Listener Example </Text>
           <Button
             raised
-            buttonStyle={{ width: 300 }}
+            buttonStyle={{ width: 300, backgroundColor: "green" }}
             loading={listening}
             title="Register SMS Listening"
             onPress={() => {
               this._onSmsListenerPressed()
             }}
           />
+          {listening && <Text>Waiting for message...</Text>}
         </View>
 
-        <Text h4>{`Message Received: \n\n${message}`}</Text>
+        <View style={{ alignItems: "center" }}>
+          <Text h4>{`Message Received:`}</Text>
+          <Text>{`${message}`}</Text>
+        </View>
       </View>
     )
   }
