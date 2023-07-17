@@ -10,11 +10,10 @@
     ```
     keytool -exportcert -alias androiddebugkey -keystore debug.keystore | xxd -p | tr -d "[:space:]" | echo -n <<<com.sms_listener>>> `cat` | sha256sum | tr -d "[:space:]-" | xxd -r -p | base64 | cut -c1-11
     ```
-OR
-```
-./sms_retriever_hash_v9.sh — package “com.your.packagename” — keystore /path/to/upload.keystore
-```
-
+    OR
+    ```
+    ./sms_retriever_hash_v9.sh — package “com.your.packagename” — keystore /path/to/upload.keystore
+    ```
 
     If you are using the debug keystore like me, it will ask for a password after you run the above command.
     The default password is: <b>`android`</b>
